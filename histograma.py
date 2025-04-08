@@ -1,0 +1,24 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+def histograma( distribucion):
+    # Generar datos de tiempos de traslado con una distribución gamma
+    size, scale = 1000, 10
+    commutes = pd.Series(np.random.gamma(scale, size=size) ** 1.5)
+
+    # Crear el histograma con pandas y matplotlib
+    commutes.plot.hist(grid=True, bins=20, rwidth=0.9, color='#607c8e')
+
+    # Añadir título y etiquetas
+    plt.title('Histograma de la distribucion' +  distribucion)
+    plt.xlabel('Cantidad')
+    plt.ylabel('Numeros')
+
+    # Configuración de la cuadrícula para mejorar la visualización
+    plt.grid(axis='y', alpha=0.75)
+
+    # Mostrar el gráfico
+    plt.show()
+

@@ -1,15 +1,15 @@
 from simulaciones_TP1 import *
+import histograma
 
 decision = 0
 
 while decision != 3:
-    print("Seleccione una opción")
-    print("1. Generador uniforme")
-    print("2. Generador exponencial")
-    print("3. Salir")
+    menu = "Seleccione una opción: \n1. Generador uniforme\n2. Generador exponencial\n3. Salir"
+    print(menu)
 
     decision = int(input("Opción: "))
 
+    histograma.histograma()
     if decision != 3:
         cantidadAGenerar = int(
             input("Cuantos números aleatorios desea generar? (Maximo: 50000) ")
@@ -24,11 +24,13 @@ while decision != 3:
                 "Los numeros aleatorios son: ",
                 generador_uniforme(a, b, cantidadAGenerar),
             )
+            histograma.histograma("Uniforme")
         elif decision == 2:
             media = float(input("Ingrese el valor de la media: "))
             print(
                 "Los numeros aleatorios son: ", generador_expo(media, cantidadAGenerar)
             )
+            histograma.histograma("Exponencial")
     elif decision == 3:
         print("Saliendo...")
     else:

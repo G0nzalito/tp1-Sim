@@ -1,4 +1,4 @@
-from simulaciones_TP1 import *
+from simulaciones_TP1 import generador_uniforme, generador_expo
 import histograma
 
 decision = 0
@@ -18,16 +18,20 @@ while decision != 3:
             cantidadAGenerar = 50000
         if decision == 1:
             a = float(input("Ingrese el valor de a: "))
-            
+
             b = float(input("Ingrese el valor de b: "))
             while b <= a:
                 print("El valor de b debe ser mayor que a.")
                 b = float(input("Ingrese de nuevo el valor de b: "))
+            
+            datos_uniformes = generador_uniforme(a, b, cantidadAGenerar)
             print(
-                "Los numeros aleatorios son: ",
-                generador_uniforme(a, b, cantidadAGenerar),
+                f'Los numeros aleatorios son: {datos_uniformes}'
             )
-            histograma.histograma( distribucion="Uniforme")
+
+            intervalos = int(input("Ingrese el número de intervalos para el histograma: "))
+
+            histograma.histograma2(datos_uniformes, bins=intervalos, distribucion="Uniforme")
         elif decision == 2:
             media = float(input("Ingrese el valor de la media: "))
             print(

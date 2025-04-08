@@ -8,7 +8,8 @@ def histograma(distribucion):
     size, scale = 1000, 10
     commutes = pd.Series(np.random.gamma(scale, size=size) ** 1.5)
     print (commutes)
-    # Crear el histograma con pandas y matplotlib
+    # Crear el histograma bins son los intervalos, rwidth es el ancho de las barras
+    # y color es el color de las barras
     commutes.plot.hist(grid=True, bins=20, rwidth=0.9, color='#607c8e')
 
     # Añadir título y etiquetas
@@ -22,3 +23,4 @@ def histograma(distribucion):
     # Mostrar el gráfico
     plt.show()
 
+# def convertirNumerosAHistogramaFriendly():

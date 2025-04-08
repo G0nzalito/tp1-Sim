@@ -9,7 +9,6 @@ while decision != 3:
 
     decision = int(input("Opción: "))
 
-    histograma.histograma()
     if decision != 3:
         cantidadAGenerar = int(
             input("Cuantos números aleatorios desea generar? (Maximo: 50000) ")
@@ -24,13 +23,13 @@ while decision != 3:
                 "Los numeros aleatorios son: ",
                 generador_uniforme(a, b, cantidadAGenerar),
             )
-            histograma.histograma("Uniforme")
+            histograma.histograma( distribucion="Uniforme")
         elif decision == 2:
             media = float(input("Ingrese el valor de la media: "))
             print(
                 "Los numeros aleatorios son: ", generador_expo(media, cantidadAGenerar)
             )
-            histograma.histograma("Exponencial")
+            histograma.histograma(distribucion="Exponencial")
     elif decision == 3:
         print("Saliendo...")
     else:

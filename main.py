@@ -18,11 +18,15 @@ while decision != 3:
             cantidadAGenerar = 50000
         if decision == 1:
             a = float(input("Ingrese el valor de a: "))
+            
             b = float(input("Ingrese el valor de b: "))
             print(
                 "Los numeros aleatorios son: ",
                 generador_uniforme(a, b, cantidadAGenerar),
             )
+            while b <= a:
+                print("El valor de b debe ser mayor que a.")
+                b = float(input("Ingrese de nuevo el valor de b: "))
             histograma.histograma( distribucion="Uniforme")
         elif decision == 2:
             media = float(input("Ingrese el valor de la media: "))

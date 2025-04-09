@@ -65,4 +65,3 @@ def generador_normal(media, desviacion, cantidadAGenerar):
         resultados.append(valor)
 
     return resultados
-

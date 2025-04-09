@@ -49,4 +49,20 @@ def generador_poisson(lambParam, cantidadAGenerar):
     return resultado
 
 
-# print(generador_poisson(2, 9))
+def generador_normal(media, desviacion, cantidadAGenerar):
+    resultados = []
+
+    for _ in range(cantidadAGenerar):
+        ran1 = round(random.random(), 2)
+        ran2 = round(random.random(), 2)
+        while ran1 == 0 or ran1 == 1 or ran2 == 0 or ran2 == 1:
+            ran1 = round(random.random(), 2)
+            ran2 = round(random.random(), 2)
+
+        z = math.sqrt(-2 * math.log(ran1)) * math.cos(2 * math.pi * ran2)
+        valor = media + z * desviacion
+        valor = round(valor, 2)
+        resultados.append(valor)
+
+    return resultados
+

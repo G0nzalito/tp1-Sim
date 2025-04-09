@@ -1,10 +1,15 @@
-from simulaciones_TP1 import generador_uniforme, generador_expo, generador_poisson
+from simulaciones_TP1 import (
+    generador_uniforme,
+    generador_expo,
+    generador_poisson,
+    generador_normal,
+)
 import histograma
 
 decision = 0
 
 while decision != -1:
-    menu = "Seleccione una opción: \n1. Generador uniforme\n2. Generador exponencial\n3. Generador Poisson\n-1. Salir"
+    menu = "Seleccione una opción: \n1. Generador uniforme\n2. Generador exponencial\n3. Generador Poisson\n4. Generador Normal\n-1. Salir"
     print(menu)
 
     decision = int(input("Opción: "))
@@ -13,10 +18,10 @@ while decision != -1:
         cantidadAGenerar = int(
             input("Cuantos números aleatorios desea generar? (Maximo: 50000) ")
         )
-        intervalos = int(input("Ingrese el número de intervalos para el histograma: "))
         if cantidadAGenerar > 50000:
             print("El máximo es 50000. Se generarán 50000 números aleatorios.")
             cantidadAGenerar = 50000
+        intervalos = int(input("Ingrese el número de intervalos para el histograma: "))
         if decision == 1:
             a = float(input("Ingrese el valor de a: "))
 
@@ -44,6 +49,16 @@ while decision != -1:
             print(f"Los numeros aleatorios son: {datos_poisson}")
             histograma.histograma(
                 datos=datos_poisson, distribucion="Poisson", bins=intervalos
+            )
+        elif decision == 4:
+            media = float(input("Ingrese el valor de la media normal: "))
+            desivacion = float(input("Ingrese el valor de la desviación estándar: "))
+            datos_normal = generador_normal(
+                media, desivacion, cantidadAGenerar=cantidadAGenerar
+            )
+            print(f"Los numeros aleatorios son: {datos_normal}")
+            histograma.histograma(
+                datos=datos_normal, distribucion="Normal", bins=intervalos
             )
     elif decision == -1:
         print("Saliendo...")
